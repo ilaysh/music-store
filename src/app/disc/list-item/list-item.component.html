@@ -1,0 +1,15 @@
+<div class="card mb-3" style="max-width: 540px;" *ngIf="disc">
+    <a [routerLink]="['/disks',disc.id]">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img [src]="disc.image" class="img-fluid rounded-start" [alt]="disc.title">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{disc.title}}</h5>
+                    <p class="card-text">Release Date: {{ disc.date | date }}</p>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>

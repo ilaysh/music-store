@@ -1,0 +1,36 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">Register</div>
+          <div class="card-body">
+            <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" class="form-control" formControlName="email" />
+                <div *ngIf="registrationForm.controls['email'].invalid && (registrationForm.controls['email'].dirty || registrationForm.controls['email'].touched)" class="text-danger">
+                  Invalid email address
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="username" class="form-label">User Name</label>
+                <input type="text" id="username" class="form-control" formControlName="username" />
+                <div *ngIf="registrationForm.controls['username'].invalid && (registrationForm.controls['username'].dirty || registrationForm.controls['username'].touched)" class="text-danger">
+                  Invalid username (letters and numbers only, cannot start with number)
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" id="password" class="form-control" formControlName="password" />
+                <div *ngIf="registrationForm.controls['password'].invalid && (registrationForm.controls['password'].dirty || registrationForm.controls['password'].touched)" class="text-danger">
+                  Password must contain at least 1 uppercase letter, 1 number and no spaces
+                </div>
+              </div>
+              <div class="text-danger" *ngIf="errorMsg">{{errorMsg}}</div>
+              <button type="submit" class="btn btn-primary" >Register</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

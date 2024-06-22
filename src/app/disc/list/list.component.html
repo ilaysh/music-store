@@ -1,0 +1,22 @@
+<div class="album-search">
+  <h2>Search Music Discs</h2>
+  <div class="search-history" *ngIf="searchHistory.length;else noHistory">
+    <h3>Last 5 Searches</h3>
+    <ul>
+      <li *ngFor="let query of searchHistory">{{ query }}</li>
+    </ul>
+  </div>
+
+  <input type="text" placeholder="Enter album name" [(ngModel)]="searchTerm" (keyup.enter)="search()">
+  <button (click)="search()">Search</button>
+  <div class="results" *ngIf="albums;else noResults">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      <div *ngFor="let disc of albums" class="col">
+        <app-list-item [disc]="disc"></app-list-item>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #noResults>No results for {{searchTerm}}</ng-template>
+
+<ng-template #noHistory><div>No recent searches</div></ng-template>

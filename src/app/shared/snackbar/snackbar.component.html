@@ -1,0 +1,8 @@
+<div id="snackbar-container">
+    <div *ngFor="let alert of alerts" [class]="cssClass(alert)">
+      <!--<i class="mdi mdi-{{alert.icon}}"></i>-->
+      <span class="alert-text" [innerHTML]="alert.msg"></span>
+      <a (click)="removeAlert(alert)" class="justify-content-end"><i class="close"></i></a>
+    </div>
+  </div>
+  
